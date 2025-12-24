@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Santa's Secret Search</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #1a472a 0%, #2d5a3d 50%, #ffffff 100%);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    height: 100vh;
+}
+
+/* ❄️ Snow */
+.snow {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: white;
+    border-radius: 50%;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to { transform: translateY(100vh); }
+}
+
+/* 🎅 Santa Walk */
+.santa-container {
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    animation: walkAcross 15s linear infinite;
+}
+
+@keyframes walkAcross {
+    0% { left: -40%; }
+    100% { left: 110%; }
+}
+
+.santa {
+    width: clamp(80px, 22vw, 150px);
+    animation: walk 0.5s ease-in-out infinite;
+}
+
+.santa img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 🪢 Rope */
+.rope {
+    width: clamp(60px, 15vw, 120px);
+    height: 3px;
+    background: #8b4513;
+    margin-left: -5px;
+}
+
+/* 🏷️ Logo */
+.logo {
+    width: clamp(80px, 22vw, 150px);
+    animation: drag 0.5s ease-in-out infinite;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Animations */
+@keyframes walk {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+}
+
+@keyframes drag {
+    0%,100% { transform: rotate(3deg); }
+    50% { transform: rotate(-3deg); }
+}
+
+/* 🎄 Text */
+.text {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: clamp(18px, 5vw, 36px);
+    color: #dc143c;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    animation: pulse 1.5s ease-in-out infinite;
+    text-align: center;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+@keyframes pulse {
+    0%,100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.08); }
+}
+
+/* 📱 Extra Mobile Tweaks */
+@media (max-width: 480px) {
+    .rope {
+        height: 2px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="santa-container">
+    <div class="santa">
+        <img 
+            src="https://k21academy.com/wp-content/uploads/2025/12/santa_c2__1_-removebg-preview-1.png"
+            alt="Santa Claus"
+            loading="eager"
+            decoding="async">
+    </div>
+
+    <div class="rope"></div>
+
+    <div class="logo">
+        <img 
+            src="https://k21academy.com/wp-content/uploads/2025/12/K21-New-logo-Black-1.png"
+            alt="K21 Logo"
+            loading="eager"
+            decoding="async">
+    </div>
+</div>
+
+<div class="text">Mera Secret Santa Kidr Hai? 🎅</div>
+
+<script>
+/* ❄️ Snow Generator */
+for (let i = 0; i < 40; i++) {
+    const snow = document.createElement('div');
+    snow.className = 'snow';
+    snow.style.left = Math.random() * 100 + '%';
+    snow.style.animationDuration = (Math.random() * 3 + 2) + 's';
+    snow.style.animationDelay = Math.random() * 5 + 's';
+    snow.style.opacity = Math.random();
+    document.body.appendChild(snow);
+}
+</script>
+
+</body>
+</html>
