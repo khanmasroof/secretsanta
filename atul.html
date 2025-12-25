@@ -181,6 +181,25 @@ h1{
 @media (prefers-reduced-motion:reduce){
     .plane-container{animation:none;}
 }
+    /* =========================
+   MOBILE VISIBILITY FIX
+========================= */
+@media (max-width: 768px) {
+
+    /* Move plane slightly up */
+    .plane-container {
+        top: 20%;
+        transform: translateY(-20%);
+    }
+
+    /* Center text vertically */
+    .ui {
+        top: 50%;
+        bottom: auto;
+        transform: translateY(-50%);
+    }
+}
+
 </style>
 </head>
 
