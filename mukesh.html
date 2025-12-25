@@ -6,7 +6,6 @@
 <title>Santa's Crash - Don't Drink and Drive</title>
 
 <style>
-
 * {
     margin: 0;
     padding: 0;
@@ -55,7 +54,7 @@ body {
     bottom: 18vh;
     width: 200px;
     height: 150px;
-    background: url('https://k21academy.com/wp-content/uploads/2025/12/cart.png') center/cover;
+    background: url('https://k21academy.com/wp-content/uploads/2025/12/cart.png') center/cover no-repeat;
     transform-origin: center;
     z-index: 10;
     animation:
@@ -97,22 +96,40 @@ body {
     animation: flyGiftBig 3.5s ease-out 3.6s forwards;
 }
 
-/* ================= Apology ================= */
+/* ================= Apology Modal ================= */
 .apology {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(0,0,0,0.9);
+    background: rgba(0,0,0,0.92);
     color: #fff;
-    padding: 30px;
-    border-radius: 15px;
-    font-size: 20px;
+    padding: 24px 20px;
+    border-radius: 16px;
     text-align: center;
-    max-width: 90%;
+    width: min(92vw, 420px);
+    max-height: 80vh;
+    overflow-y: auto;
     opacity: 0;
     animation: showApology 2s ease-in 5s forwards;
     z-index: 100;
+}
+
+.apology h2 {
+    font-size: 22px;
+    margin-bottom: 14px;
+}
+
+.apology p {
+    font-size: 16px;
+    line-height: 1.6;
+    white-space: normal;
+}
+
+.apology .highlight {
+    color: #ffcc00;
+    font-weight: bold;
+    margin-top: 18px;
 }
 
 /* ================= Animations ================= */
@@ -154,54 +171,35 @@ body {
 }
 
 @keyframes showApology {
-    from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+    from { opacity: 0; transform: translate(-50%, -50%) scale(0.85); }
     to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 }
 
-/* ================= MOBILE OPTIMIZATION ================= */
+/* ================= Mobile Tweaks ================= */
 @media (max-width: 768px) {
-
     .cart {
         width: 130px;
         height: 100px;
-        bottom: 15vh;
     }
 
     .impact {
         width: 100px;
         height: 100px;
-        bottom: 22vh;
-        right: 12%;
     }
 
     .gift {
         width: 95vw;
         height: 200px;
     }
-
-    .apology {
-        font-size: 16px;
-        padding: 20px;
-    }
 }
 
 @media (max-width: 480px) {
-
-    .cart {
-        width: 110px;
-        height: 85px;
-    }
-
-    .gift {
-        height: 180px;
-    }
-
     .apology h2 {
-        font-size: 18px;
+        font-size: 20px;
     }
 
     .apology p {
-        font-size: 14px;
+        font-size: 15px;
     }
 }
 </style>
@@ -210,7 +208,6 @@ body {
 <body>
 <div class="scene">
 
-    <div class="mountains"></div>
     <div class="snow"></div>
 
     <div class="cart"></div>
@@ -220,13 +217,15 @@ body {
 
     <div class="apology">
         <h2>Santa's Apology</h2>
-        <p style="margin-top:15px; line-height:1.6;">
-            "Suno [Mukesh], main tumhara gift lekar aa hi raha tha, par airport pe Customs waalo ne pakad liya. Unhe laga gift ke andar 🍺 hai, par usme toh sirf meri garibi thi. Gift abhi bhi lock-up mein hai. So sorry, next year milte hain!
-            ."
+        <p>
+            "Suno <b>[Mukesh]</b>, main tumhara gift lekar aa hi raha tha,
+            par airport pe Customs waalon ne pakad liya.
+            Unhe laga gift ke andar 🍺 hai,
+            par usme toh sirf meri garibi thi.
+            Gift abhi bhi lock-up mein hai.
+            So sorry, next year milte hain!"
         </p>
-        <p style="margin-top:20px; color:#ffcc00; font-weight:bold;">
-           Sorry Next Year
-        </p>
+        <p class="highlight">Sorry Next Year 🎄</p>
     </div>
 
 </div>
